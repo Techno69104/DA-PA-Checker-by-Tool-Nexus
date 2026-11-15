@@ -1,0 +1,10 @@
+[Unit]
+Description=DA PA Checker Own Unlimited
+After=network.target
+[Service]
+User=root
+WorkingDirectory=/root/da-pa
+ExecStart=/root/da-pa/venv/bin/uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+[Install]
+WantedBy=multi-user.target
