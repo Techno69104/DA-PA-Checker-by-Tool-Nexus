@@ -1,10 +1,12 @@
 services:
-  - type: web
-    name: da-pa-own-unlimited
+    - type: web
+    name: da-pa-checker-by-tool-nexus
     env: python
     plan: free
-    buildCommand: pip install -r backend/requirements.txt
+    buildCommand: pip install --upgrade pip && pip install -r backend/requirements.txt
     startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: PYTHON_VERSION
+            - key: PYTHON_VERSION
         value: 3.11.0
+            - key: PIP_NO_CACHE_DIR
+        value: "1"
